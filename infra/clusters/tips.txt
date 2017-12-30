@@ -1,2 +1,10 @@
+#clean the ssh key known_host because when i destroy the droplet, it might have new IP
+ssh-keygen -f "/home/thor/.ssh/known_hosts" -R btc.geek.per.sg
+
+#install dashboard addon
+kubectl apply -f kubedash/
 #access dashboard
-kubectl port-forward (podId - kubernetes-dashboard-7c5d596d8c-7hsdr) 8443 -n kube-system
+kubectl port-forward (podId - kubernetes-dashboard-7c5d596d8c-7hsdr) 9090 -n kube-system
+
+#install ingress addon
+kubectl apply -R -f digital-ocean/
