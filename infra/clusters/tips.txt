@@ -1,0 +1,2 @@
+#access dashboard
+kubectl port-forward (podId - kubernetes-dashboard-7c5d596d8c-7hsdr) 8443 -n kube-system
