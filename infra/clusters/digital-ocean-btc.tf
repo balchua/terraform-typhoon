@@ -8,8 +8,8 @@ module "digital-ocean-btc" {
   image = "coreos-stable"
   controller_count = 1
   controller_type = "2gb"
-  worker_count = 2
-  worker_type = "512mb"
+  worker_count = 3
+  worker_type = "2gb"
   ssh_fingerprints = [
     "77:45:be:8b:e9:38:8e:04:55:d5:71:5b:3c:c6:68:57"]
 

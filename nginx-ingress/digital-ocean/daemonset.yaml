@@ -14,6 +14,7 @@ spec:
         name: nginx-ingress-controller
         phase: prod
     spec:
+      serviceAccountName: nginx-ingress-serviceaccount
       nodeSelector:
         node-role.kubernetes.io/node: ""
       hostNetwork: true
@@ -23,7 +24,9 @@ spec:
           args:
             - /nginx-ingress-controller
             - --default-backend-service=$(POD_NAMESPACE)/default-backend
-            - --ingress-class=public
+            - --ingress-class=nginx
+          # verbose logs of nginx
+            - --v=3
           # use downward API
           env:
             - name: POD_NAME

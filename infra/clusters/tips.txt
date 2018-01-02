@@ -1,5 +1,6 @@
 #clean the ssh key known_host because when i destroy the droplet, it might have new IP
 ssh-keygen -f "/home/thor/.ssh/known_hosts" -R btc.geek.per.sg
+ssh-keygen -f "/home/thor/.ssh/known_hosts" -R btc-workers.geek.per.sg
 
 #install dashboard addon
 kubectl apply -f kubedash/
