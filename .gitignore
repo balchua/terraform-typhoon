@@ -2,4 +2,3 @@
 **/do-simple/terraform.tfstate.backup
 **/infra/clusters/terraform.tfstate
 **/infra/clusters/terraform.tfstate.backup
-**/typhoon-master

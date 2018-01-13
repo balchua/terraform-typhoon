@@ -1,5 +1,6 @@
 module "digital-ocean-btc" {
-  source = "git::https://github.com/poseidon/typhoon//digital-ocean/container-linux/kubernetes"
+  #source = "git::https://github.com/poseidon/typhoon//digital-ocean/container-linux/kubernetes"
+  source = "../../typhoon-master/digital-ocean/container-linux/kubernetes"
 
   region = "sgp1"
   dns_zone = "geek.per.sg"

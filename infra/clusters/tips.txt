@@ -2,10 +2,14 @@
 ssh-keygen -f "/home/thor/.ssh/known_hosts" -R btc.geek.per.sg
 ssh-keygen -f "/home/thor/.ssh/known_hosts" -R btc-workers.geek.per.sg
 
+#use typhoon kubeconfig
+export KUBECONFIG=$DO_KUBECONFIG
+
 #install dashboard addon
 kubectl apply -f kubedash/
+kubectl get po -n kube-system
 #access dashboard
-kubectl port-forward (podId - kubernetes-dashboard-7c5d596d8c-7hsdr) 9090 -n kube-system
+kubectl port-forward (podId - kubernetes-dashboard-85d6448969-bpv4w) 9090 -n kube-system
 
 #install ingress addon
 kubectl apply -R -f digital-ocean/
