@@ -3,7 +3,7 @@ resource "digitalocean_droplet" "nfs-client" {
   image = "ubuntu-16-04-x64"
   name = "nfs-client"
   region = "sgp1"
-  size = "512mb"
+  size = "s-1vcpu-1gb"
   private_networking = true
   ssh_keys = [
     "${var.digitalocean_ssh_fingerprint}"]
