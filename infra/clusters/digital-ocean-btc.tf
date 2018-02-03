@@ -8,12 +8,13 @@ module "digital-ocean-btc" {
   cluster_name = "btc"
   image = "coreos-stable"
   controller_count = 1
-  controller_type = "4gb"
-  worker_count = 2
-  worker_type = "4gb"
+  controller_type = "s-2vcpu-4gb"
+  worker_count = 3
+  worker_type = "s-2vcpu-4gb"
   ssh_fingerprints = [
     "${var.digitalocean_ssh_fingerprint}"]
 
   # output assets dir
   asset_dir = "/home/thor/.secrets/clusters/btc"
 }
+
