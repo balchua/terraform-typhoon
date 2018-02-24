@@ -1,16 +1,15 @@
 module "digital-ocean-btc" {
-  source = "git::https://github.com/poseidon/typhoon//digital-ocean/container-linux/kubernetes?ref=v1.9.2"
-  #  source = "../../typhoon-master/digital-ocean/container-linux/kubernetes"
+  source = "git::https://github.com/poseidon/typhoon//digital-ocean/container-linux/kubernetes?ref=v1.9.3"
 
-  region = "sgp1"
+  region = "nyc3"
   dns_zone = "geek.per.sg"
 
   cluster_name = "btc"
   image = "coreos-stable"
   controller_count = 1
-  controller_type = "s-2vcpu-4gb"
+  controller_type = "s-4vcpu-8gb"
   worker_count = 3
-  worker_type = "s-2vcpu-4gb"
+  worker_type = "s-4vcpu-8gb"
   ssh_fingerprints = [
     "${var.digitalocean_ssh_fingerprint}"]
 

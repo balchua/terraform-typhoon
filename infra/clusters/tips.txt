@@ -13,3 +13,8 @@ kubectl port-forward (podId - kubernetes-dashboard-85d6448969-bpv4w) 9090 -n kub
 
 #install ingress addon
 kubectl apply -R -f digital-ocean/
+
+#get rollout status
+kubectl -n do-myproject rollout status deployment grpc
+#get rollout history
+kubectl -n do-myproject rollout history deployment grpc

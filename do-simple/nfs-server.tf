@@ -1,7 +1,7 @@
 resource "digitalocean_droplet" "nfs-server" {
   image = "ubuntu-16-04-x64"
   name = "nfs-server"
-  region = "sgp1"
+  region = "nyc3"
   size = "s-1vcpu-1gb"
   private_networking = true
   ssh_keys = [
@@ -21,9 +21,15 @@ resource "digitalocean_droplet" "nfs-server" {
 
 # Controller Container Linux Config
 resource "template_file" "nfs_server_config" {
-
   template = "${file("${path.module}/templates/nfs-server.yaml.tmpl")}"
-
 }
 
 
+resource "digitalocean_record" "nfs-server" {
+  # DNS zone where record should be created
+  domain = "geek.per.sg"
+  name = "nfs-server"
+  type = "A"
+  ttl = 300
+  value = "${digitalocean_droplet.nfs-server.ipv4_address}"
+}
