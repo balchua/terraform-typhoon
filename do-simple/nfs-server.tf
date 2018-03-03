@@ -25,11 +25,4 @@ resource "template_file" "nfs_server_config" {
 }
 
 
-resource "digitalocean_record" "nfs-server" {
-  # DNS zone where record should be created
-  domain = "geek.per.sg"
-  name = "nfs-server"
-  type = "A"
-  ttl = 300
-  value = "${digitalocean_droplet.nfs-server.ipv4_address}"
-}
+
