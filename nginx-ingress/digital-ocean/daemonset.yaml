@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: nginx-ingress-controller
@@ -8,25 +8,26 @@ spec:
     type: RollingUpdate
     rollingUpdate:
       maxUnavailable: 1
+  selector:
+    matchLabels:
+      name: nginx-ingress-controller
+      phase: prod
   template:
     metadata:
       labels:
         name: nginx-ingress-controller
         phase: prod
     spec:
-      serviceAccountName: nginx-ingress-serviceaccount
       nodeSelector:
         node-role.kubernetes.io/node: ""
       hostNetwork: true
       containers:
         - name: nginx-ingress-controller
-          image: quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.9.0
+          image: quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.10.2
           args:
             - /nginx-ingress-controller
             - --default-backend-service=$(POD_NAMESPACE)/default-backend
             - --ingress-class=nginx
-          # verbose logs of nginx
-            - --v=3
           # use downward API
           env:
             - name: POD_NAME
