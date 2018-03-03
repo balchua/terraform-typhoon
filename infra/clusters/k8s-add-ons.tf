@@ -1,4 +1,4 @@
-/*resource "null_resource" "install_addons" {
+resource "null_resource" "install_addons" {
   depends_on = ["module.digital-ocean-btc"]
 
   provisioner "local-exec" {
@@ -16,7 +16,12 @@
       until kubectl apply -f ../../nginx-ingress/digital-ocean/default-backend/service.yaml 2>/dev/null; do printf '.' ; sleep 5; done
       until kubectl apply -f ../../nginx-ingress/digital-ocean/daemonset.yaml 2>/dev/null; do printf '.' ; sleep 5; done
       until kubectl apply -f ../../nginx-ingress/digital-ocean/service.yaml 2>/dev/null; do printf '.' ; sleep 5; done
+      #prometheus addons
+      until kubectl apply -R -f ../../prometheus/ 2>/dev/null; do printf '.' ; sleep 5; done
+      #Grafana addons
+      until kubectl apply -f ../../grafana/ 2>/dev/null; do printf '.' ; sleep 5; done
+
 EOT
   }
-}*/
+}
 
