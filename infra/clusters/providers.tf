@@ -1,9 +1,8 @@
 provider "digitalocean" {
-  version = "0.1.3"
-  #token = "${chomp(file("~/.config/digital-ocean/token"))}"
+  version = "1.0.0"
+  token = "${chomp(file("~/.config/digital-ocean/token"))}"
   alias = "default"
 }
-
 
 provider "local" {
   version = "~> 1.0"

@@ -14,13 +14,17 @@ spec:
       labels:
         name: prometheus
         phase: prod
+      annotations:
+        seccomp.security.alpha.kubernetes.io/pod: 'docker/default'
     spec:
       serviceAccountName: prometheus
       containers:
       - name: prometheus
-        image: quay.io/prometheus/prometheus:v2.1.0
+        image: quay.io/prometheus/prometheus:v2.4.3
         args:
-          - '--config.file=/etc/prometheus/prometheus.yaml'
+        - --web.listen-address=0.0.0.0:9090
+        - --config.file=/etc/prometheus/prometheus.yaml
+        - --storage.tsdb.path=/var/lib/prometheus
         ports:
         - name: web
           containerPort: 9090
@@ -31,8 +35,18 @@ spec:
           mountPath: /etc/prometheus/rules
         - name: data
           mountPath: /var/lib/prometheus
-      dnsPolicy: ClusterFirst
-      restartPolicy: Always
+        readinessProbe:
+          httpGet:
+            path: /-/ready
+            port: 9090
+          initialDelaySeconds: 10
+          timeoutSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /-/healthy
+            port: 9090
+          initialDelaySeconds: 10
+          timeoutSeconds: 10
       terminationGracePeriodSeconds: 30
       volumes:
       - name: config
