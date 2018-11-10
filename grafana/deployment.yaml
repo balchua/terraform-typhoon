@@ -59,6 +59,6 @@ spec:
       - name: dashboard-providers
         configMap:
           name: grafana-dashboard-providers
-        - name: dashboards
-          configMap:
-            name: grafana-dashboards
+      - name: dashboards
+        configMap:
+          name: grafana-dashboards

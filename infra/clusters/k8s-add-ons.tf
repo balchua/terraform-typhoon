@@ -20,8 +20,7 @@ resource "null_resource" "install_addons" {
       until kubectl apply -R -f ../../prometheus/ 2>/dev/null; do printf '.' ; sleep 5; done
       #Grafana addons
       until kubectl apply -f ../../grafana/ 2>/dev/null; do printf '.' ; sleep 5; done
-      #install argo
-      until kubectl apply -f ../../../argo/src/argo-install.yaml 2>/dev/null; do printf "."; sleep 5; done
+
 EOT
   }
 }

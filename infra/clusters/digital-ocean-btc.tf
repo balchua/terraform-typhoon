@@ -9,7 +9,7 @@ template = "template.default"
 tls = "tls.default"
 }
 
-  region = "nyc3"
+region = "sgp1"
   dns_zone = "geek.per.sg"
 
   cluster_name = "btc"
