@@ -1,0 +1,16 @@
+{
+  "CN": "system:node:kube-worker-0",
+  "key": {
+    "algo": "rsa",
+    "size": 2048
+  },
+  "names": [
+    {
+      "C": "SG",
+      "L": "Singapore",
+      "O": "system:nodes",
+      "OU": "Kubernetes The Hard Way",
+      "ST": "Singapore"
+    }
+  ]
+}
