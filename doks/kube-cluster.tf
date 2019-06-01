@@ -1,12 +1,12 @@
 resource "digitalocean_kubernetes_cluster" "doks-cluster" {
   name    = "doks-cluster"
-  region  = "nyc1"
-  version = "1.13.1-do.2"
+  region  = "sgp1"
+  version = "1.14.1-do.3 "
 
   node_pool {
     name       = "worker-nodes"
     size       = "s-8vcpu-32gb"
-    node_count = 6
+    node_count = 3
   }
 }
 

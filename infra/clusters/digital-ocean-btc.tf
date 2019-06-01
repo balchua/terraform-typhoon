@@ -1,5 +1,5 @@
 module "digital-ocean-btc" {
-  source = "git::https://github.com/poseidon/typhoon//digital-ocean/container-linux/kubernetes?ref=v1.14.1"
+  source = "git::https://github.com/poseidon/typhoon//digital-ocean/container-linux/kubernetes?ref=v1.14.2"
 
   providers = {
     digitalocean = "digitalocean.default"

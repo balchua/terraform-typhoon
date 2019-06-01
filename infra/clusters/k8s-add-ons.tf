@@ -12,8 +12,6 @@ resource "null_resource" "install_addons" {
       until kubectl apply -f ../../nginx-ingress/digital-ocean/rbac/cluster-role-binding.yaml 2>/dev/null; do printf '.' ; sleep 5; done
       until kubectl apply -f ../../nginx-ingress/digital-ocean/rbac/role.yaml 2>/dev/null; do printf '.' ; sleep 5; done
       until kubectl apply -f ../../nginx-ingress/digital-ocean/rbac/role-binding.yaml 2>/dev/null; do printf '.' ; sleep 5; done
-      until kubectl apply -f ../../nginx-ingress/digital-ocean/default-backend/deployment.yaml 2>/dev/null; do printf '.' ; sleep 5; done
-      until kubectl apply -f ../../nginx-ingress/digital-ocean/default-backend/service.yaml 2>/dev/null; do printf '.' ; sleep 5; done
       until kubectl apply -f ../../nginx-ingress/digital-ocean/daemonset.yaml 2>/dev/null; do printf '.' ; sleep 5; done
       until kubectl apply -f ../../nginx-ingress/digital-ocean/service.yaml 2>/dev/null; do printf '.' ; sleep 5; done
       #prometheus addons
