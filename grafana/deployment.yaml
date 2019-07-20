@@ -60,6 +60,8 @@ spec:
               mountPath: /etc/grafana/dashboards/k8s
             - name: dashboards-k8s-resources
               mountPath: /etc/grafana/dashboards/k8s-resources
+            - name: dashboards-umeter
+              mountPath: /etc/grafana/dashboards/umeter
       volumes:
         - name: config
           configMap:
@@ -79,4 +81,7 @@ spec:
         - name: dashboards-k8s-resources
           configMap:
             name: grafana-dashboards-k8s-resources
+        - name: dashboards-umeter
+          configMap:
+            name: grafana-dashboards-umeter
 
