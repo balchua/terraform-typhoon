@@ -3,3 +3,5 @@
 **/typhoon-master/*
 **/.terraform/*
 **/.idea/*
+**/typhoon/*
+terraform.tfstate

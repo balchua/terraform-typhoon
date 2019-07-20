@@ -1,16 +1,17 @@
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: grafana
-  namespace: monitoring
+  name: linkerd
+  namespace: linkerd
   annotations:
     kubernetes.io/ingress.class: "public"
 spec:
   rules:
-  - host: grafana.geek.per.sg
+  - host: linkerd.geek.per.sg
     http:
       paths:
       - path: /
         backend:
-          serviceName: grafana
-          servicePort: 80
+          serviceName: linkerd-web
+          servicePort: 8084
+
