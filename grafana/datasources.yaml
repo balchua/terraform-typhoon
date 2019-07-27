@@ -10,7 +10,7 @@ data:
     - name: prometheus
       type: prometheus
       access: proxy
-      url: http://prometheus.monitoring.svc.cluster.local
+      url: http://prometheus.monitoring.svc.cluster.local:3100
       version: 1
       editable: false
   loki.yaml: |+
