@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: grafana
-          image: docker.io/grafana/grafana:6.2.5
+          image: docker.io/grafana/grafana:6.3.5
           env:
             - name: GF_PATHS_CONFIG
               value: "/etc/grafana/custom.ini"
@@ -56,12 +56,18 @@ spec:
               mountPath: /etc/grafana/provisioning/dashboards
             - name: dashboards-etcd
               mountPath: /etc/grafana/dashboards/etcd
+            - name: dashboards-prom
+              mountPath: /etc/grafana/dashboards/prom
             - name: dashboards-k8s
               mountPath: /etc/grafana/dashboards/k8s
+            - name: dashboards-k8s-nodes
+              mountPath: /etc/grafana/dashboards/k8s-nodes
             - name: dashboards-k8s-resources
               mountPath: /etc/grafana/dashboards/k8s-resources
-            - name: dashboards-umeter
-              mountPath: /etc/grafana/dashboards/umeter
+            - name: dashboards-coredns
+              mountPath: /etc/grafana/dashboards/coredns
+            - name: dashboards-nginx-ingress
+              mountPath: /etc/grafana/dashboards/nginx-ingress
       volumes:
         - name: config
           configMap:
@@ -75,13 +81,22 @@ spec:
         - name: dashboards-etcd
           configMap:
             name: grafana-dashboards-etcd
+        - name: dashboards-prom
+          configMap:
+            name: grafana-dashboards-prom
         - name: dashboards-k8s
           configMap:
             name: grafana-dashboards-k8s
+        - name: dashboards-k8s-nodes
+          configMap:
+            name: grafana-dashboards-k8s-nodes
         - name: dashboards-k8s-resources
           configMap:
             name: grafana-dashboards-k8s-resources
-        - name: dashboards-umeter
+        - name: dashboards-coredns
           configMap:
-            name: grafana-dashboards-umeter
+            name: grafana-dashboards-coredns
+        - name: dashboards-nginx-ingress
+          configMap:
+            name: grafana-dashboards-nginx-ingress
 

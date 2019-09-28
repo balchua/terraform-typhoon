@@ -1,11 +1,10 @@
 provider "digitalocean" {
-  version = "~> 1.3.0"
+  version = "1.7.0"
   token = "${chomp(file("~/.config/digital-ocean/token"))}"
-  alias = "default"
 }
 
 provider "ct" {
-  version = "0.3.1"
+  version = "0.4.0"
 }
 
 provider "local" {
@@ -14,17 +13,17 @@ provider "local" {
 }
 
 provider "null" {
-  version = "~> 1.0"
+  version = "~> 2.1"
   alias = "default"
 }
 
 provider "template" {
-  version = "~> 1.0"
+  version = "~> 2.1"
   alias = "default"
 }
 
 provider "tls" {
-  version = "~> 1.0"
+  version = "~> 2.0"
   alias = "default"
 }
 
